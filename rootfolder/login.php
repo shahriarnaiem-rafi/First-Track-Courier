@@ -37,76 +37,89 @@ if (isset($_POST["loggedin"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log in Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* General Reset */
+        /* Reset and Global Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #6a11cb, #2575fc);
+            background: linear-gradient(180deg, rgba(15, 15, 15, 0.8), rgba(0, 0, 0, 0.6)), url('background.jpg') no-repeat center center/cover;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            color: #333;
+            min-height: 100vh;
+            color: #fff;
+            font-size: 16px;
         }
 
-        form {
-            background-color: #fff;
-            padding: 30px;
+        .form-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             width: 100%;
             max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
         }
 
         h2 {
             text-align: center;
+            font-size: 28px;
             margin-bottom: 20px;
-            color: #4CAF50;
-            font-size: 24px;
+            color: #ff6347;
         }
 
         label {
             display: block;
             margin-bottom: 8px;
-            font-weight: bold;
-            color: #555;
+            color: #bbb;
+            font-size: 14px;
         }
 
         input[type="text"],
         input[type="password"],
         select {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #333;
+            border: 1px solid #444;
             border-radius: 8px;
+            color: #fff;
             font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        select:focus {
+            border: 1px solid #ff6347;
+            outline: none;
         }
 
         input[type="submit"] {
             width: 100%;
-            padding: 12px;
-            background-color: #4CAF50;
+            padding: 15px;
+            background-color: #ff6347;
             color: #fff;
+            font-size: 18px;
             border: none;
             border-radius: 8px;
-            font-size: 18px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s ease;
         }
 
         input[type="submit"]:hover {
-            background-color: #45a049;
+            background-color: #e5533e;
         }
 
         .error-message {
-            color: red;
+            color: #e74c3c;
             font-size: 14px;
             text-align: center;
             margin-top: 10px;
@@ -115,10 +128,10 @@ if (isset($_POST["loggedin"])) {
         a {
             display: block;
             text-align: center;
-            margin-top: 15px;
-            color: #2575fc;
-            text-decoration: none;
+            margin-top: 20px;
+            color: #ff6347;
             font-size: 14px;
+            text-decoration: none;
         }
 
         a:hover {
@@ -127,40 +140,64 @@ if (isset($_POST["loggedin"])) {
 
         select {
             font-size: 16px;
-            height: 40px;
+            height: 50px;
+            background-color: #333;
             border-radius: 8px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
+            border: 1px solid #444;
+            color: #fff;
+            padding-left: 15px;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 20 20%22 fill=%22none%22%3E%3Cpath fill-rule=%22evenodd%22 clip-rule=%22evenodd%22 d=%22M6 8C6 7.44772 6.44772 7 7 7H13C13.5523 7 14 7.44772 14 8V12C14 12.5523 13.5523 13 13 13H7C6.44772 13 6 12.5523 6 12V8ZM7 9V11H13V9H7Z%22 fill=%22%23FFFFFF%22/%3E%3C/svg%3E');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 10px;
+        }
+
+        select:focus {
+            border: 1px solid #ff6347;
+        }
+
+        .form-footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #bbb;
         }
     </style>
-
 </head>
 
 <body>
-
-    <form action="" method="post">
+    <div class="form-container">
         <h2>Login</h2>
         <!-- Display error message if exists -->
         <?php if (isset($error_massage)): ?>
             <div class="error-message"><?php echo $error_massage; ?></div>
         <?php endif; ?>
-        <label for="role">Role</label>
-        <select name="role" id="role">
-            <option value="Admin">Admin</option>
-            <option value="Staf">Staf</option>
-        </select>
 
-        <label for="email">Email</label>
-        <input type="text" placeholder="Enter your email" name="email" required><br>
+        <form action="" method="post">
+            <label for="role">Role</label>
+            <select name="role" id="role">
+                <option value="Admin">Admin</option>
+                <option value="Staff">Staff</option>
+            </select>
 
-        <label for="password">Password</label>
-        <input type="password" placeholder="Enter your password" name="password" required><br>
-       
+            <label for="email">Email</label>
+            <input type="text" placeholder="Enter your email" name="email" required><br>
 
-        <input type="submit" name="loggedin" value="Log in">
-        <a href="./registration.php">Registar</a>
-    </form>
+            <label for="password">Password</label>
+            <input type="password" placeholder="Enter your password" name="password" required><br>
 
+            <input type="submit" name="loggedin" value="Log in">
+            <a href="./registration.php">Don't have an account? Register here</a>
+        </form>
+
+        <div class="form-footer">
+            <p>&copy; 2025 FastTrack. All Rights Reserved.</p>
+        </div>
+    </div>
 </body>
 
 </html>
