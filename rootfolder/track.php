@@ -120,7 +120,7 @@ h2 {
                 <a href="" class="text-2xl" style="color:orange;">Fast-track Courier <br> Service (Pvt.) Ltd.</a>
             </div>
             <div class="flex-none">
-                <button class="btn btn-primary w-24 text-xl my-btn" style="margin-right: 100px;"> <a href="home.php" id="home-login">Home</a></button>
+                <button class="btn btn-primary w-24 text-xl my-btn" style="margin-right: 100px;"> <a href="../home.php" id="home-login">Home</a></button>
                 <button class="btn btn-success w-24 my-btn"><a href="login.php" id="login-btn"><i class="fa-solid fa-lock"></i> Log in</a></button>
             </div>
         </div>

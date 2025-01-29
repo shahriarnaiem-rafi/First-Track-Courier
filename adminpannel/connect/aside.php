@@ -1,32 +1,32 @@
 <style>
   .app-sidebar {
-    color: black !important;
+    color: white ;
 }
 
 .app-sidebar .nav-link, 
 .app-sidebar .brand-text, 
 .app-sidebar .nav-item p {
-    color: black !important;
+    color: white !important;
 }
 
 .app-sidebar .nav-icon, 
 .app-sidebar .fa-solid, 
 .app-sidebar .fa-regular, 
 .app-sidebar .bi {
-    color: black !important;
+    color: white !important;
 }
 
 </style>
-<aside class="app-sidebar bg-[#FDBCD5] shadow" data-bs-theme="dark">
+<aside class="app-sidebar bg-[#7e56e3] shadow" data-bs-theme="blue" >
   <!--begin::Sidebar Brand-->
-  <div class="sidebar-brand">
+  <div class="sidebar-brand" >
     <!--begin::Brand Link-->
     <a href="./index.php" class="brand-link">
       <!--begin::Brand Image-->
       <img src="../assets/img/adminimg.png" alt="AdminLTE Logo" class="brand-image opacity-75 shadow" />
       <!--end::Brand Image-->
       <!--begin::Brand Text-->
-      <span class="brand-text fw-light">Admin</span>
+      <span class="brand-text fw-light ">Admin</span>
       <!--end::Brand Text-->
     </a>
     <!--end::Brand Link-->

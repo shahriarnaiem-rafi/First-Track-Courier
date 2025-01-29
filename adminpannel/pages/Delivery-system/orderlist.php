@@ -38,6 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delivery_status'])) {
     thead {
         background-color: #007bff;
         color: #fff;
+
+
     }
 
     th,
@@ -191,6 +193,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delivery_status'])) {
                 </div>
             </div>
         </div>
+
     </div>
 
     <!-- Bootstrap JS Bundle -->
@@ -249,28 +252,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delivery_status'])) {
         function generatePDF(service, senderName, senderAddress, senderPhone, receiverName, receiverAddress, receiverPhone, weight, money, date, orderId) {
             const doc = open('', '', 'height=400px; width=600px;');
             with(doc.document) {
-                write("<html><head><title>Fast-Track-courier</title>");
+                write("<html><head><title>Fast-Track-Courier</title>");
                 write("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css'>");
                 write("<style>");
-                write("body { font-family: Arial, sans-serif; margin: 20px; }");
-                write(".receipt { border: 2px solid #ccc; padding: 20px; border-radius: 10px; background-color: lightblue; box-shadow: 0 4px 10px rgba(180, 133, 133, 0.1); }");
-                write("h1 { text-align: center; color: #333; font-size: 24px; margin-bottom: 10px; }");
-                write("h2 { color: #555; font-size: 20px; margin-bottom: 5px; }");
-                write("h3 { color: #666; font-size: 18px; margin-bottom: 5px; }");
+                write("body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }");
+                write(".receipt { max-width: 600px; margin: 20px auto; padding: 20px; border-radius: 10px; background-color: #fff; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); border-top: 5px solid #007BFF; }");
+                write("h1, h2, h3 { text-align: center; color: #333; margin-bottom: 10px; }");
                 write("p { margin: 5px 0; font-size: 16px; }");
                 write("strong { color: #333; }");
                 write("table { width: 100%; border-collapse: collapse; margin: 20px 0; }");
-                write("table, th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }");
-                write("th { background-color: #f2f2f2; font-weight: bold; }");
+                write("table, th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }");
+                write("th { background-color: #007BFF; color: white; font-weight: bold; }");
                 write(".button { margin-top: 20px; text-align: center; }");
-                write(".button button { margin-right: 10px; padding: 10px 15px; border: none; border-radius: 5px; background-color: #007BFF; color : white; cursor: pointer; font-size: 16px; transition: background-color 0.3s; }");
+                write(".button button { margin: 10px; padding: 10px 15px; border: none; border-radius: 5px; background-color: #007BFF; color: white; cursor: pointer; font-size: 16px; transition: 0.3s; }");
                 write(".button button:hover { background-color: #0056b3; }");
                 write("</style></head><body>");
 
                 write("<div class='receipt'>");
+                write("<h1><img src='https://i.ibb.co/hx2RKnfN/logo2.png' alt='logo' style='height:100px; width: 100px;'></h1>");
                 write("<h1>Fast-Track-Courier Receipt</h1>");
                 write("<h2>Order ID: " + orderId + "</h2>");
-                write("<h2>Date: " + date + "</h2>");
+                write("<h3>Date: " + date + "</h3>");
                 write("<table>");
                 write("<tr><th colspan='2'>Sender Information</th></tr>");
                 write("<tr><td><strong>Service Type:</strong></td><td>" + service + "</td></tr>");
@@ -282,8 +284,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delivery_status'])) {
                 write("<tr><td><strong>Address:</strong></td><td>" + receiverAddress + "</td></tr>");
                 write("<tr><td><strong>Phone:</strong></td><td>" + receiverPhone + "</td></tr>");
                 write("<tr><td><strong>Weight:</strong></td><td>" + weight + " grams</td></tr>");
-                write("<tr><td><strong>Cost:</strong></td><td>" + money + "<i class='fa-solid fa-bangladeshi-taka-sign'></i></td></tr>");
+                write("<tr><td><strong>Cost:</strong></td><td>" + money + " <i class='fa-solid fa-bangladeshi-taka-sign'></i></td></tr>");
                 write("</table>");
+                write("<p style='text-align: center; font-size: 14px;'><a href='https://shahriarnaiem.online/' target='_blank'>Visit Our Website</a></p>");
                 write("<div class='button'>");
                 write("<button onclick='self.close()'>Close</button>");
                 write("<button onclick='self.print()'>Print</button>");
@@ -291,6 +294,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delivery_status'])) {
                 write("</div>");
                 write("</body></html>");
             }
+
         }
     </script>
 

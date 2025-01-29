@@ -5,19 +5,36 @@ if (isset($_POST["loggedin"])) {
 
     $email = $_POST["email"];
     $password = $_POST["password"];
+    $role = $_POST["role"];  // Get the selected role
+
     try {
-        $check = $database->prepare("SELECT * FROM registration WHERE email= ?");
-        $check->bind_param("s", $email);
+        if ($role === "Admin") {
+            // Admin Login Logic
+            $check = $database->prepare("SELECT * FROM registration WHERE email= ?");
+            $check->bind_param("s", $email);
+        } else if ($role === "Staff") {
+            // Staff Login Logic
+            $check = $database->prepare("SELECT * FROM register_staf WHERE email= ?");
+            $check->bind_param("s", $email);
+        }
+
         if ($check->execute()) {
             $output = $check->get_result();
             $user = $output->fetch_assoc();
         }
+
         if ($user) { // Check if user exists
             if (password_verify($password, $user['password'])) {
                 // Set session variables
                 $_SESSION['user-id'] = $user['id'];
                 $_SESSION['email'] = $user['email'];
-                header("Location:../adminpannel/home_dashboard.php");
+
+                // Redirect to the correct dashboard based on role
+                if ($role === "Admin") {
+                    header("Location:../adminpannel/home_dashboard.php");
+                } else if ($role === "Staff") {
+                    header("Location:../userpannel/index.php");
+                }
                 exit();
             } else {
                 $error_massage = "Invalid password. Try again.";

@@ -1,6 +1,6 @@
 <?php 
 $database = mysqli_connect("localhost", "root", "", "fasttrack");
-    if(isset($_POST['asing'])){
+if(isset($_POST['asing'])){
 
         $driver_id=$_POST['driver'];
         $vehicle=$_POST['vehicle'];

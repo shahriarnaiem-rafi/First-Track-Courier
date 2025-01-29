@@ -1,7 +1,7 @@
 <?php
 ob_start();
 session_start();
-$database=mysqli_connect("localhost","root","","fasttrack");
+$database = mysqli_connect("localhost", "root", "", "fasttrack");
 $userId = $_SESSION['user-id'];
 $sql = "SELECT * FROM registration WHERE id = ?";
 $stmt = $database->prepare($sql);
