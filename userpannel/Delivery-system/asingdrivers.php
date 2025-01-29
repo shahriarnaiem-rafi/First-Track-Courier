@@ -6,7 +6,7 @@ $database = mysqli_connect("localhost", "root", "", "fasttrack");
         $vehicle=$_POST['vehicle'];
         $order_id=$_POST['customer_id1'];
          $sql = $database->query("INSERT INTO assing_drivers(driver_id,vehicle,order_id) VALUES('$driver_id','$vehicle','$order_id')");
-        header("location:index.php");
+        // header("location:index.php");
 
     }
     if (isset($_GET['deleteid'])) {

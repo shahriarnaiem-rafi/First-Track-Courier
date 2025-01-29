@@ -5,7 +5,7 @@ if (isset($_GET['deleteid'])) {
     $id = $_GET['deleteid'];
     $sql = "DELETE FROM customer_section WHERE id=$id";
     if (mysqli_query($database, $sql) === TRUE) {
-        header("location:index.php");
+        // header("location:index.php");
     }
 }
 

@@ -14,7 +14,7 @@ if (isset($_POST['received'])) {
     // Update the status in customer_section table
     $update_query = "UPDATE customer_section SET status = '$status' WHERE id = $order_id";
     if ($database->query($update_query)) {
-        header("Location: index.php");
+        // header("Location: index.php");
     } else {
         echo "Error updating status in customer_section: " . $database->error;
     }
