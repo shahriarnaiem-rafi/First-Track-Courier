@@ -1,19 +1,30 @@
 <?php
+require_once __DIR__ . "/../../connect/admin_auth.php";
+
 $database = mysqli_connect("localhost", "root", "", "fasttrack");
+
 if (isset($_POST["saved"])) {
     $branch_name = $_POST['branch_name'];
     $branch_code = $_POST['branch_code'];
+
     $sql = $database->query("INSERT INTO branch(branch_name,branch_code) VALUES('$branch_name','$branch_code')");
+
     header("location:$_SERVER[PHP_SELF]");
+    exit();
 }
-// if (isset($_GET['deleteid'])) {
-//     $id = $_GET['deleteid'];
-//     $sql = "DELETE FROM branch WHERE id=$id";
-//     if (mysqli_query($database, $sql) === TRUE) {
-//         header("location:index.php");
-//     }
-// }
+
+if (isset($_GET['deleteid'])) {
+    $id = $_GET['deleteid'];
+
+    $sql = "DELETE FROM branch WHERE branch_id=$id";
+
+    if (mysqli_query($database, $sql) === TRUE) {
+        header("location:$_SERVER[PHP_SELF]");
+        exit();
+    }
+}
 ?>
+
 <style>
     .form-container {
         max-width: 400px;
@@ -73,9 +84,10 @@ if (isset($_POST["saved"])) {
 
     <form method="post">
         <h2>Branch Information Form</h2>
+
         <div class="form-group">
             <label for="">Branch ID</label>
-            <input type="text" id="" name="branch_id" placeholder="Auto-generated" disabled>
+            <input type="text" name="branch_id" placeholder="Auto-generated" disabled>
         </div>
 
         <div class="form-group">
@@ -87,14 +99,17 @@ if (isset($_POST["saved"])) {
             <label for="branch-code">Branch Code</label>
             <input type="text" id="branch-code" name="branch_code" required>
         </div>
+
         <div class="form-group">
             <button type="submit" name="saved">Save</button>
         </div>
     </form>
+
 </div>
+
 <div>
     <?php
-    $db = $database->query("select * from branch");
+    $db = $database->query("SELECT * FROM branch");
 
     echo "<h3>Branch List</h3>
     <table>
@@ -106,16 +121,20 @@ if (isset($_POST["saved"])) {
                 <th>Action</th>
             </tr>
         </thead>";
-    while (list($id, $branch_name,$branch_code) = $db->fetch_row()) {
+
+    while (list($id, $branch_name, $branch_code) = $db->fetch_row()) {
         echo "<tbody>
             <tr>
                 <td>$id</td>
                 <td>$branch_name</td>
                 <td>$branch_code</td>
-                <td style='color:red; font-size:20px;'>Delete</td>
+                <td>
+                    <a href='?deleteid=$id' style='color:red; font-size:20px;'>Delete</a>
+                </td>
             </tr>
-            </tbody>";
+        </tbody>";
     }
+
     echo "</table>";
     ?>
 </div>

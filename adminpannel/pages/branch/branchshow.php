@@ -1,6 +1,6 @@
 <?php
 $database = mysqli_connect("localhost", "root", "", "fasttrack");
-
+// require_once "../../connect/admin_auth.php";
 if (isset($_GET['deleteid'])) {
     $id = $_GET['deleteid'];
     $sql = "DELETE FROM customer_section WHERE id=$id";

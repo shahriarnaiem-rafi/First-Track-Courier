@@ -1,18 +1,24 @@
 <?php
-ob_start();
+
 $database = mysqli_connect("localhost", "root", "", "fasttrack");
+
 if (isset($_POST["add-driver"])) {
     $dname = $_POST['driver_name'];
     $dphone = $_POST['driver_phone'];
     $dstatus = $_POST['driver_status'];
+
     $sql = $database->query("INSERT INTO driver_management(driver_name,driver_phone,available) VALUES('$dname','$dphone','$dstatus')");
+
     if ($sql) {
         header("location: index.php");
     }
 }
+
 if (isset($_GET['deleteid'])) {
     $id = $_GET['deleteid'];
+
     $sql = "DELETE FROM driver_management WHERE id=$id";
+
     if (mysqli_query($database, $sql) === TRUE) {
         header("location:index.php");
     }

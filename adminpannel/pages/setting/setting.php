@@ -1,3 +1,4 @@
+<?require_once "../connect/admin_auth.php";?>
 <style>
     body {
         font-family: Arial, sans-serif;

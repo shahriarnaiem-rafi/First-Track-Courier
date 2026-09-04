@@ -1,3 +1,4 @@
+<?php require_once "../connect/admin_auth.php";?>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -14,7 +15,7 @@
         border-radius: 8px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-
+    
     .form-container h2 {
         text-align: center;
         margin-bottom: 20px;

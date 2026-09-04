@@ -59,7 +59,7 @@
             <li class="nav-item" disabled>
               <a href="#" class="nav-link" id="user-btn">
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Customer Section</p>
+                <p>Customer info</p>
               </a>
             </li>
           </ul>
@@ -225,7 +225,7 @@ Manage notification settings (email/SMS alerts for delivery updates). -->
           <a href="#" class="nav-link">
             <i class="fa-solid fa-user"></i>
             <p>
-              Auth
+              Create Staff
               <i class="nav-arrow bi bi-chevron-right"></i>
             </p>
           </a>
@@ -234,13 +234,13 @@ Manage notification settings (email/SMS alerts for delivery updates). -->
             <li class="nav-item">
               <a href="../../rootfolder/login.php" class="nav-link" id="aurth-login-btn">
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Login</p>
+                <p>Staff Login</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="" class="nav-link" id="aurth-registry-btn">
                 <i class="nav-icon bi bi-circle"></i>
-                <p>Register </p>
+                <p>Staff Register </p>
               </a>
             </li>
         </li>

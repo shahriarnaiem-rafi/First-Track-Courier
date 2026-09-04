@@ -1,5 +1,6 @@
 <?php
 $database = mysqli_connect("localhost", "root", "", "fasttrack");
+require_once "../connect/admin_auth.php";
 if (isset($_POST["loggedin"])) {
     $email = $_POST["email"];
     $password = $_POST["password"];

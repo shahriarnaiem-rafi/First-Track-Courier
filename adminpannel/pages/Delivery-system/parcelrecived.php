@@ -1,6 +1,6 @@
 <?php
 $database = mysqli_connect("localhost", "root", "", "fasttrack");
-
+require_once "../connect/admin_auth.php";
 if (isset($_POST['received'])) {
     $order_id = $_POST['customer_id1'];
     $branch_id = $_POST['receiverAddress'];

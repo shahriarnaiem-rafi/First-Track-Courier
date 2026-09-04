@@ -210,7 +210,7 @@
                 <p class="text-center text-2xl">Fast-track Courier Service has the most widespread network in
                     Bangladesh. Click below to view a list of all our Branches and Agencies.</p>
                 <div class="text-center">
-                    <button class="btn btn-info"><a href="./adminpannel/pages/branch/branchshow.php">View
+                    <button class="btn btn-info"><a href="/First-Track-Courier/adminpannel/pages/branch/branchshow.php">View
                             list</a></button>
                 </div>
             </div>
